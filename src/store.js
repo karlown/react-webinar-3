@@ -1,6 +1,3 @@
-/**
- * Хранилище состояния приложения
- */
 class Store {
   constructor(initState = {}) {
     this.state = initState;
@@ -41,10 +38,18 @@ class Store {
   /**
    * Добавление новой записи
    */
+ 
   addItem() {
+    const newCode = Math.floor(Math.random() * 9999)
+    const newElement = {
+      code: newCode,
+      title: 'новая запись',
+      counter: 0,
+    }
     this.setState({
       ...this.state,
-      list: [...this.state.list, {code: this.state.list.length + 1, title: 'Новая запись'}]
+      list: [...this.state.list,newElement,]
+      
     })
   };
 
@@ -69,6 +74,10 @@ class Store {
       list: this.state.list.map(item => {
         if (item.code === code) {
           item.selected = !item.selected;
+          item.counter++;
+          
+        } else {
+          item.selected = false;
         }
         return item;
       })

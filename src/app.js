@@ -17,18 +17,21 @@ function App({store}) {
         <h1>Приложение на чистом JS</h1>
       </div>
       <div className='App-controls'>
-        <button onClick={() => store.addItem()}>Добавить</button>
+        <button onClick=
+        {() => store.addItem()}>Добавить</button>
       </div>
       <div className='App-center'>
         <div className='List'>{
           list.map(item =>
             <div key={item.code} className='List-item'>
               <div className={'Item' + (item.selected ? ' Item_selected' : '')}
-                   onClick={() => store.selectItem(item.code)}>
+                   onClick=
+                   {() => store.selectItem(item.code)}>
                 <div className='Item-code'>{item.code}</div>
-                <div className='Item-title'>{item.title}</div>
+                <div className='Item-title'>{item.title}{item.counter >= 1 ? ` | Выделяли ${item.counter} раз` : ""}</div>
                 <div className='Item-actions'>
-                  <button onClick={() => store.deleteItem(item.code)}>
+                  <button onClick=
+                  {() => store.deleteItem(item.code)}>
                     Удалить
                   </button>
                 </div>
