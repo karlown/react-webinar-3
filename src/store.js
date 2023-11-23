@@ -74,8 +74,7 @@ class Store {
       list: this.state.list.map(item => {
         if (item.code === code) {
           item.selected = !item.selected;
-          item.counter++;
-          
+          item.selected === true ? item.counter++: '';
         } else {
           item.selected = false;
         }
