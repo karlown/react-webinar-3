@@ -40,9 +40,9 @@ class Store {
    */
  
   addItem() {
-    const newCode = Math.floor(Math.random() * 9999)
+    let uniqueId = Math.floor(Math.random() * 100) + Date.now().toString().slice(9,12);
     const newElement = {
-      code: newCode,
+      code: uniqueId,
       title: 'новая запись',
       counter: 0,
     }
